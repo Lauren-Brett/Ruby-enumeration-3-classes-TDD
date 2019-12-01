@@ -14,7 +14,7 @@ class TestGuest < Minitest::Test
     @guest2 = Guest.new("Ruby", 80)
     @guest3 = Guest.new("Gem", 50)
     @guest4 = Guest.new("Rob", 100)
-    @fav_song = 
+    @fav_song = fav_song
   end
 
 end
