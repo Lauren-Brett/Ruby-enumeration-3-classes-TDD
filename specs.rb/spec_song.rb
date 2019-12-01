@@ -15,6 +15,9 @@ class TestSong < Minitest::Test
     @song4 = Song.new("Poolside", "Harvest Moon", 4)
   end
 
-
+def test_song_has_title
+  result = @song.title_of_song(@song2)
+  assert_equal("Original Don", result)
+end
 
 end

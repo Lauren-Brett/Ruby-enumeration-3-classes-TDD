@@ -9,6 +9,7 @@ def initialize(name, wallet)
   # @fav_song = fav_song
 end
 
+
 def check_enough_money_to_sing(room)
   return @wallet >= room.price
 end

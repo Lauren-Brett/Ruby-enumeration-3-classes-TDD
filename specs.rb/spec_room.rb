@@ -31,8 +31,11 @@ class TestRoom < Minitest::Test
     assert_equal("The Pretenders", @room1.name)
   end
 
+
   def test_room_has_a_price_of_20_per_hour
+    assert_equal(20, @room1.price)
   end
+
 
   def test_room_start_with_empty_till
     assert_equal(0, @room1.till)
@@ -46,10 +49,12 @@ class TestRoom < Minitest::Test
     assert_equal(0, @room1.guest_counter)
   end
 
+
   def test_add_one_guest_to_room
     @room1.increse_number_of_guests(@guest1)
     assert_equal(1, @room1.guest_counter)
   end
+
 
   def test_add_multiple_guests_to_room
     @room1.increse_number_of_guests(@guest1)
@@ -57,6 +62,7 @@ class TestRoom < Minitest::Test
     @room1.increse_number_of_guests(@guest3)
     assert_equal(3, @room1.guest_counter)
   end
+
 
   def test_remove_guest_from_room
     @room1.increse_number_of_guests(@guest1)
@@ -75,6 +81,7 @@ class TestRoom < Minitest::Test
   #   update_occupancy = @room1.occupancy
   #   assert_equal(1, @room1.update_occupancy)
   # end
+
 
   def test_check_max_capacity_of_room_has_been_reached
     @room1.increse_number_of_guests(@guest1)
@@ -97,15 +104,18 @@ class TestRoom < Minitest::Test
     assert_equal("Still Space!", @room1.capacity)
   end
 
+
   def test_songs_in_playlist
     @room1.song_list_counter
     assert_equal(4, @room1.song_list_counter)
   end
 
+
   def test_get_song_by_name_of_artist
     result = @room1.song_by_artist("Poolside")
     assert_equal(@song4, result)
   end
+
 
   def test_length_of_individual_songs
     result = @room1.song_by_time_in_mins(10)
@@ -132,12 +142,14 @@ class TestRoom < Minitest::Test
 
   # I know this test below is a little questionable in real life and in why im
   #doing it, but doing it to practice :)
+
   def test_time_limit_is_up_when_60_mins_has_passed_due_to_playlist
     @room1.add_song_to_playlist(@song5)
     assert_equal(5, @room1.song_list_counter)
     assert_equal(61, @room1.total_all_song_times)
     assert_equal("Time up!", @room1.time_limit)
   end
+
 
   def test_guest_has_enough_money_to_afford_the_room
     assert_equal(true, @room1.ask_guest_to_pay(@guest1, @room1))
@@ -149,5 +161,6 @@ def test_till_increases_as_guest_pays
   @room1.till_increases_as_guest_pays(@room1)
   assert_equal(20, @room1.till)
 end
+
 
 end

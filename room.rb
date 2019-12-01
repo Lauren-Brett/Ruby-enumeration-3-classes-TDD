@@ -9,8 +9,6 @@ class Room
   # it helped me practise and get my head around certain tasks!! )
 
 
-
-
   attr_reader :name, :till, :price, :capacity
 
   def initialize(name, till, time_limit, price, songs_array = [] )
@@ -60,13 +58,16 @@ class Room
     return @songs.length
   end
 
+
   def song_by_artist(specific_song)
     @songs.find { |song| song.artist == specific_song}
   end
 
+
   def song_by_time_in_mins(song_time)
     @songs.find { |song| song.time_of_song == song_time}
   end
+
 
   def total_all_song_times
     # binding.pry
@@ -109,9 +110,10 @@ class Room
     end
   end
 
+
 def till_increases_as_guest_pays(room)
   return @till += room.price
 end
 
-
+# I might come back to this to practise more, but leaving it this far for now.
 end
